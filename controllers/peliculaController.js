@@ -7,33 +7,45 @@ const PeliculaController = {}; //Create the object controller
 //-------------------------------------------------------------------------------------
 // Create and Save a new Pelicula
 PeliculaController.create = (req, res) => {
-  // Validate request
-  if (!req.body.titulo) {
-    res.status(400).send({ message: "Content can not be empty!" });
-    return;
+
+  if (req.user.user.rol == "admin") {// HACEMOS QUE SOLO PUEDA CREARLO EL ADMINISTRADOR
+    // Validate request
+
+    console.log('tmc -> ' , req );
+
+    if (!req.body.titulo) {
+      res.status(400).send({ message: "Content can not be empty!" });
+      return;
+    }
+
+    // Create a Pelicula
+    const pelicula = new Pelicula({
+      titulo: req.body.titulo,
+      precio: req.body.precio,
+      duracion: req.body.duracion,
+      genero: req.body.genero,
+      actorPrincipal: req.body.actorPrincipal
+    });
+
+    // Save Pelicula in the database
+    pelicula
+      .save(pelicula)
+      .then(data => {
+        res.send(data);
+      })
+      .catch(err => {
+        res.status(500).send({
+          message:
+            err.message || "Some error occurred while creating the Tutorial."
+        });
+      });
+
+  } else {
+    res.send({
+      message: `No tienes permisos para borrar peliculas. Contacta con un administrador.`
+    });
   }
 
-  // Create a Pelicula
-  const pelicula = new Pelicula({
-    titulo: req.body.titulo,
-    precio: req.body.precio,
-    duracion: req.body.duracion,
-    genero: req.body.genero,
-    actorPrincipal: req.body.actorPrincipal
-  });
-
-  // Save Pelicula in the database
-  pelicula
-    .save(pelicula)
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while creating the Tutorial."
-      });
-    });
 };
 
 
@@ -83,13 +95,13 @@ PeliculaController.findByTitulo = (req, res) => {
   Pelicula.findOne({ titulo: titulo })
     .then(data => {
       if (!data)
-        res.status(404).send({ message: "Not found Pelicula with titulo " + id });
+        res.status(404).send({ message: "Not found Pelicula with titulo " + titulo });
       else res.send(data);
     })
     .catch(err => {
       res
         .status(500)
-        .send({ message: "Error retrieving Pelicula with titulo=" + id });
+        .send({ message: "Error retrieving Pelicula with titulo=" + titulo });
     });
 };
 
