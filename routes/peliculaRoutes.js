@@ -10,7 +10,7 @@ router.get("/:id", peliculaController.findById); // EndPoint de buscar una pelic
 router.get("/titulo/:titulo", peliculaController.findByTitulo); // EndPoint de buscar una pelicula por titulo
 router.get("/genero/:genero", peliculaController.findByGenero); // EndPoint de buscar una pelicula por genero
 router.get("/actor/:actor", peliculaController.findByActor); // EndPoint de buscar una pelicula por actor
-// router.get('/ciudad/:ciudad', peliculaController.findByCiudad); // EndPoint de buscar una pelicula por ciudad
+router.get('/ciudad/:ciudad', peliculaController.findByCiudad); // EndPoint de buscar una pelicula por ciudad
 // router.get('/ciudad/:ciudad/disponible/:diponible', peliculaController.getByAlquiler); // EndPoint si una pelicula esta diponible por ciudad
 
 

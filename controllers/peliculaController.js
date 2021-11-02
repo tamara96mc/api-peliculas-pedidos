@@ -143,5 +143,22 @@ PeliculaController.findByActor = (req, res) => {
     });
 };
 
+PeliculaController.findByCiudad = (req, res) => {
+
+  const ciudad = req.params.ciudad;
+  Pelicula.findOne({ ciudad: ciudad })
+    .then(data => {
+      if (!data)
+        res.status(404).send({ message: "Not found Pelicula with id " + id });
+      else res.send(data);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .send({ message: "Error retrieving Pelicula with id=" + id });
+    });
+};
+
+
 
 module.exports = PeliculaController;
