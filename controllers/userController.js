@@ -13,8 +13,7 @@ const UserController = {}; //Create the object controller
 UserController.signIn = (req, res) =>{
         let { email, password } = req.body;
         // Buscar usuario
-        User.findOne({ where: { email: email }
-        }).then(user => {
+        User.findOne({ email: email }).then(user => {
             if (!user) {
                 res.status(404).json({ msg: "Usuario con este correo no encontrado" });
             } else {
