@@ -16,23 +16,6 @@ npm run start
 npm install express mongoose 
 
 
-cadena de conexión mongoDB: mongodb://user:password;@192.168.100.90:27017/geografiaMongo?authSource=admin&readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false
-
-npm init
-npm install
-npm update
-npm run dev
-npm run start
-
-npm install express mongoose 
-
-#### Mongo DB server
-show dbs
-use peliculas_db
-db.createCollection('users')
-db.createCollection('peliculas')
-db.createCollection('pedidos')
-
 cadena de conexión mongoDB:
     "mongodb+srv://usuario:password.@cluster0.l3ts1.mongodb.net/pelisMongo?retryWrites=true&w=majority"
 
