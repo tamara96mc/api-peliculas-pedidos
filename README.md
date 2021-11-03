@@ -31,26 +31,26 @@ cadena de conexión mongoDB: mongodb://user:password;@192.168.100.90:27017/geogr
 ---------------------------------------- USERS ----------------------------------------
 
 #### USERS
-GET - localhost:3000
+post -> '/signup' -> EndPoint de crear usuario
+post -> '/signin' -> EndPoint de logear usuario
+get -> "/:id" -> EndPoint buscar perfil de usuario
+delete -> "/:id" -> EndPoint de borrar usuario
 
 ---------------------------------------- PELICULAS ----------------------------------------
-GET - localhost:3000/movie
-GET - localhost:3000/movie/:id
-GET - localhost:3000/movie/available
-POST - localhost:3000/movie
-PUT - localhost:3000/movie/:id
-DELETE - localhost:3000/movie
-DELETE - localhost:3000/movie/:id
+post  -> "/" -> EndPoint de crear una pelicula
+get  -> "/" -> EndPoint de buscar todas las peliculas
+get -> "/:id" ->  EndPoint de buscar una pelicula por id
+get" -> /titulo/:titulo" -> EndPoint de buscar una pelicula por titulo
+get ->"/genero/:genero" -> EndPoint de buscar una pelicula por genero
+get-> "/actor/:actor" ->  EndPoint de buscar una pelicula por actor
+get-> '/ciudad/:ciudad'  -> EndPoint de buscar una pelicula por ciudad
+
 
 ---------------------------------------- PEDIDOS ----------------------------------------
-GET - localhost:3000/categorie
-GET - localhost:3000/categorie/:id
-POST - localhost:3000/categorie
-PUT - localhost:3000/categorie/:id
-DELETE - localhost:3000/categorie
-DELETE - localhost:3000/categorie/id
+post("/", pedidoController.create); // EndPoint de crear pedido
+router.get("/", pedidoController.findAll); // EndPoint de buscar todos los pedidos
 
 ```
 ## HOSTING 
 
-En Heroku a traves de github -> https://api-peliculas-pedidos.herokuapp.com/
+En Heroku a traves de github -> https://api-tmc-pelis.herokuapp.com/
