@@ -25,7 +25,6 @@ cadena de conexión mongoDB:
 ```
 ---------------------------------------- USERS ----------------------------------------
 
-#### USERS
 post -> '/signup' -> EndPoint de crear usuario
 post -> '/signin' -> EndPoint de logear usuario
 get -> "/:id" -> EndPoint buscar perfil de usuario
