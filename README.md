@@ -43,12 +43,12 @@ get -> "/:id" ->  EndPoint de buscar una pelicula por id
 get" -> /titulo/:titulo" -> EndPoint de buscar una pelicula por titulo
 get ->"/genero/:genero" -> EndPoint de buscar una pelicula por genero
 get-> "/actor/:actor" ->  EndPoint de buscar una pelicula por actor
-get-> '/ciudad/:ciudad'  -> EndPoint de buscar una pelicula por ciudad
+get -> '/ciudad/:ciudad'  -> EndPoint de buscar una pelicula por ciudad
 
 
 ---------------------------------------- PEDIDOS ----------------------------------------
-post("/", pedidoController.create); // EndPoint de crear pedido
-router.get("/", pedidoController.findAll); // EndPoint de buscar todos los pedidos
+post -> "/" -> EndPoint de crear pedido
+get -> "/" -> EndPoint de buscar todos los pedidos
 
 ```
 ## HOSTING 
