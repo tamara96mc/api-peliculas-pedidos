@@ -8,15 +8,10 @@
 
 ```
 npm init
-npm install
-npm update
-npm run dev
-npm run start
-
 npm install express mongoose 
+npm run dev
 
-
-cadena de conexión mongoDB:
+Cadena de conexión mongoDB Atlas:
     "mongodb+srv://usuario:password.@cluster0.l3ts1.mongodb.net/pelisMongo?retryWrites=true&w=majority"
 
 ```
